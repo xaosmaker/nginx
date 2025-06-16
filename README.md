@@ -28,7 +28,7 @@ mkdir -p ~/.nginx-certs
 ```
 3. go to the .nginx-certs dir
 ```
-cd .nginx-certs
+cd ~/.nginx-certs
 ```
 4. generate the certs
 ```
