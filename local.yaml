@@ -1,0 +1,20 @@
+services:
+
+  nginx:
+    restart: unless-stopped
+    container_name: nginx
+    build:
+      context: ./local
+      dockerfile: Dockerfile
+    volumes:
+      - ~/.nginx-cerst:/certs/
+    ports:
+      - 443:443
+      - 80:80
+    networks:
+        - local-nginx-net
+
+    
+networks:
+  local-nginx-net:
+    external: true
