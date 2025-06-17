@@ -13,8 +13,27 @@ services:
       - 80:80
     networks:
         - local-nginx-net
+  
+  portainer:
+    restart: always
+    image: portainer/portainer-ce:lts
+    container_name: portainer
+    expose:
+        - 8000
+        - 9443
+    volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
+        - portainer_data:/data
+    networks:
+        - local-nginx-net
+
+
+ 
 
     
 networks:
   local-nginx-net:
+    name: local-nginx-net
+volumes:
+  portainer_data:
     external: true

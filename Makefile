@@ -6,5 +6,8 @@ build:
 
 inpect_nginx:
 	 docker exec -it nginx /bin/bash
+down-v:
+	docker-compose -f local.yaml down -v
+
 
 
