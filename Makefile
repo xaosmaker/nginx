@@ -9,5 +9,7 @@ inpect_nginx:
 down-v:
 	docker-compose -f local.yaml down -v
 
+logs:
+	docker logs nginx
 
 
