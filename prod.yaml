@@ -11,7 +11,7 @@ services:
       - ~/nginx_prod/servers/:/etc/nginx/conf.d/servers
       - ~/nginx_prod/includes/:/etc/nginx/conf.d/includes
       - ~/nginx_prod/static/:/usr/share/nginx/html
-      - /certbot-webroot:/var/www/certbot
+      - ./certbot/:/var/www/certbot
 
     ports:
       - 443:443
