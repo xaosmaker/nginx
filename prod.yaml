@@ -1,0 +1,26 @@
+services:
+
+  nginx:
+    restart: unless-stopped
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ~/.nginx-certs:/certs/
+      - ~/.nginxProd/servers/:/etc/nginx/conf.d/servers
+      - ~/.nginxProd/includes/:/etc/nginx/conf.d/includes
+      - ~/.nginxProd/static/:/usr/share/nginx/html
+
+    ports:
+      - 443:443
+      - 80:80
+    networks:
+        - local
+        - prod-nginx-net
+  
+networks:
+  local:
+  prod-nginx-net:
+    name: prod-nginx-net
+    internal: true
