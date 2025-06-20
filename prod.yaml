@@ -7,10 +7,10 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ~/.nginx-certs:/certs/
-      - ~/.nginxProd/servers/:/etc/nginx/conf.d/servers
-      - ~/.nginxProd/includes/:/etc/nginx/conf.d/includes
-      - ~/.nginxProd/static/:/usr/share/nginx/html
+      - ~/nginx-certs:/certs/
+      - ~/nginx_prod/servers/:/etc/nginx/conf.d/servers
+      - ~/nginx_prod/includes/:/etc/nginx/conf.d/includes
+      - ~/nginx_prod/static/:/usr/share/nginx/html
 
     ports:
       - 443:443

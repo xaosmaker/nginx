@@ -4,10 +4,13 @@ services:
     restart: unless-stopped
     container_name: nginx
     build:
-      context: ./local
+      context: .
       dockerfile: Dockerfile
     volumes:
-      - ~/.nginx-certs:/certs/
+      - ~/nginx-certs:/certs/
+      - ~/nginx_local/servers/:/etc/nginx/conf.d/servers
+      - ~/nginx_local/includes/:/etc/nginx/conf.d/includes
+      - ~/nginx_local/static/:/usr/share/nginx/html
     ports:
       - 443:443
       - 80:80
