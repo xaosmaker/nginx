@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ~/nginx-certs:/certs/
+      - /etc/letsencrypt:/certs/:ro
       - ~/nginx_local/servers/:/etc/nginx/conf.d/servers
       - ~/nginx_local/includes/:/etc/nginx/conf.d/includes
       - ~/nginx_local/static/:/usr/share/nginx/html
