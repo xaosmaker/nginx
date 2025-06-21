@@ -1,5 +1,5 @@
 init-run: build
-	python3 create_dir.py
+	sudo python3 create_dir.py
 	docker compose -f local.yaml up -d
 
 run: build
