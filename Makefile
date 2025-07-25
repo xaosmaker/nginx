@@ -1,6 +1,6 @@
 init-run: build
-	sudo python3 create_dir.py
-	docker compose -f local.yaml up -d
+	python3 create_dir.py
+	docker compose -f local.yaml up -d --remove-orphans
 
 run: build
 	docker compose -f local.yaml up -d
