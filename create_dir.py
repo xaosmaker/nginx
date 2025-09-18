@@ -6,7 +6,7 @@ from os import path
 
 gen_ssl_test_keys = "openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout privkey.pem -out fullchain.pem"
 
-lets_encrypt_dir = "/etc/letsencrypt/live/drosinakis.com/"
+lets_encrypt_dir = "/etc/letsencrypt/live/drosinakis.app/"
 argvs = sys.argv
 prod = False
 nginx_dir = "local"
