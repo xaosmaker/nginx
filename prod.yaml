@@ -1,5 +1,4 @@
 services:
-
   nginx:
     restart: unless-stopped
     container_name: nginx
@@ -17,9 +16,9 @@ services:
       - 443:443
       - 80:80
     networks:
-        - local
-        - prod-nginx-net
-  
+      - local
+      - prod-nginx-net
+
 networks:
   local:
   prod-nginx-net:
