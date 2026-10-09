@@ -1,20 +1,20 @@
-init-run: build
-	python3 create_dir.py
-	docker compose -f local.yaml up -d --remove-orphans
+dev-init-run: dev-build
+	./scripts/local_setup.sh
+	docker compose -f devops/local.yaml up -d --remove-orphans
 
-run: build
-	docker compose -f local.yaml up -d
+dev-run: prod-build
+	docker compose -f devops/local.yaml up -d
 
-build:
-	docker compose -f local.yaml build --no-cache
+dev-build:
+	docker compose -f devops/local.yaml build --no-cache
 
-down-v:
-	docker compose -f local.yaml down -v
+dev-down-v:
+	docker compose -f devops/local.yaml down -v
 
 
 
 inspect_nginx:
-	 docker exec -it nginx /bin/bash
+	 docker exec -it nginx /bin/sh
 
 logs:
 	docker logs nginx
@@ -28,16 +28,16 @@ hot-reload: test-conf
 
 
 
-init-run-prod: build-prod
-	python3 create_dir.py prod
-	docker compose -f prod.yaml up -d
+prod-init-run: prod-build
+	./scripts/prod_setup.sh
+	docker compose -f devops/prod.yaml --env-file .env up -d
 
-run-prod: build-prod
-	docker compose -f prod.yaml up -d
+prod-run: prod-build
+	docker compose -f devops/prod.yaml --env-file .env up -d
 
-build-prod:
-	docker compose -f prod.yaml build --no-cache
+prod-build:
+	docker compose -f devops/prod.yaml --env-file .env build --no-cache
 
-down-v-prod:
-	docker compose -f prod.yaml down -v
+prod-down-v:
+	docker compose -f devops/prod.yaml --env-file .env down -v
 

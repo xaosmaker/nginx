@@ -4,7 +4,7 @@ ABS_LOCAL_SSL_PATH="$HOME/nginx_local/letsencrypt/live/domain.com/"
 
 echo "Start creating the dir structure for local run"
 
-cp -r local/ "$HOME/nginx_local"
+cp -r directories/local/ "$HOME/nginx_local"
 
 echo "Finish creating the nginx_local setup"
 

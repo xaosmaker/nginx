@@ -4,11 +4,11 @@ upstream portainer {
 server{
     listen 443 ssl;
     server_name portainer;
-    include /etc/nginx/conf.d/includes/ssl_conf.conf;
+    include /etc/nginx/conf.d/includes/headers_conf.conf;
 
     location / {
         proxy_pass https://portainer;
-        include /etc/nginx/conf.d/includes/location.conf;
+        include /etc/nginx/conf.d/includes/proxy_conf.conf;
     
     }
 

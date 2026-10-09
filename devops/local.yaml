@@ -1,0 +1,21 @@
+services:
+  nginx:
+    restart: unless-stopped
+    container_name: nginx
+    build:
+      context: ../.
+      dockerfile: devops/Dockerfile
+    volumes:
+      - $HOME/nginx_local/letsencrypt/live/domain.com:/certs/live/domain.com:ro
+      - $HOME/nginx_local/servers/:/etc/nginx/conf.d/servers
+      - $HOME/nginx_local/includes/:/etc/nginx/conf.d/includes
+      - $HOME/nginx_local/static/:/usr/share/nginx/html
+    ports:
+      - 443:443
+      - 80:80
+    networks:
+      - nginx-net
+
+networks:
+  nginx-net:
+    name: nginx-net
