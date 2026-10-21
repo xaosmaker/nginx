@@ -30,14 +30,14 @@ hot-reload: test-conf
 
 prod-init-run: prod-build
 	./scripts/prod_setup.sh
-	docker compose -f devops/prod.yaml --env-file .env up -d
+	docker compose -f devops/prod.yaml up -d
 
 prod-run: prod-build
-	docker compose -f devops/prod.yaml --env-file .env up -d
+	docker compose -f devops/prod.yaml up -d
 
 prod-build:
-	docker compose -f devops/prod.yaml --env-file .env build --no-cache
+	docker compose -f devops/prod.yaml build --no-cache
 
 prod-down-v:
-	docker compose -f devops/prod.yaml --env-file .env down -v
+	docker compose -f devops/prod.yaml down -v
 
